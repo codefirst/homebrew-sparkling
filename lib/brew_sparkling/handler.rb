@@ -23,3 +23,4 @@ module BrewSparkling
 end
 
 require 'brew_sparkling/handler/base'
+require 'brew_sparkling/handler/help'
