@@ -10,7 +10,7 @@ module BrewSparkling
       end
 
       def call
-        p tarball
+        tarball
       end
 
       def tarball
