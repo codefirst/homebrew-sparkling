@@ -1,4 +1,8 @@
-require 'brew_sparkling/gateway/xcode'
+require 'brew_sparkling/action/xcode/base'
+require 'brew_sparkling/action/xcode/discover'
+require 'brew_sparkling/action/xcode/devices'
+require 'brew_sparkling/action/xcode/accounts'
+require 'brew_sparkling/action/xcode/certificates'
 
 # Show xcode info
 module BrewSparkling
@@ -8,27 +12,19 @@ module BrewSparkling
       command :devices, :discover, :accounts, :certificates
 
       def discover
-        Gateway::Xcode.availables do |host, port|
-          puts "http://#{host}::#{port}"
-        end
+        Action::Xcode::Discover.new.call
       end
 
       def devices
-        gateway.devices.each do |device|
-          puts "#{device.name}" if device.platform == 'iphoneos'
-        end
+        Action::Xcode::Devices.new.call
       end
 
       def accounts
-        gateway.accounts.each do |account|
-          puts account.username
-        end
+        Action::Xcode::Accounts.new.call
       end
 
       def certificates
-        gateway.certificates.each do |certificate|
-          puts certificate.commonName
-        end
+        Action::Xcode::Certificates.new.call
       end
 
       def gateway
