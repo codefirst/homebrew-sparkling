@@ -4,12 +4,13 @@ module BrewSparkling
   module Recipe
     class Recipe
 
-      attr_reader :name, :url, :version
+      attr_reader :name, :url, :version, :app_name
 
-      def initialize(name, url, version, &build_code)
+      def initialize(name, url, version, app_name, &build_code)
         @name = name
         @url = url
         @version = version
+        @app_name = app_name
         @build_code = build_code
       end
 
@@ -19,6 +20,10 @@ module BrewSparkling
 
       def archive_path
         Location.archive_path.join(name, version)
+      end
+
+      def app_path
+        Location.archive_path.join(name, "#{version}.xcarchive", 'Products', 'Applications', "#{app_name}.app")
       end
 
       def xcpretty
