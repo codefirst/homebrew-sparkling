@@ -25,3 +25,4 @@ end
 require 'brew_sparkling/handler/base'
 require 'brew_sparkling/handler/help'
 require 'brew_sparkling/handler/xcode'
+require 'brew_sparkling/handler/install'
