@@ -36,7 +36,9 @@ module BrewSparkling
       end
 
       def devices
-        get('/devices').map { |device| OpenStruct.new(device) }
+        get('/devices')
+          .map { |device| OpenStruct.new(device) }
+          .select { |device| device.platform == 'iphoneos' }
       end
 
       def accounts
@@ -47,14 +49,21 @@ module BrewSparkling
         get('/certificates').map { |device| OpenStruct.new(device) }
       end
 
+      def request_provisioning(account, certificate, device, bundle_id)
+        get('/request_provisioning', username: account.username,
+                                     certificateName: certificate.commonName,
+                                     deviceName: device.name,
+                                     bundleIdentifier: bundle_id)
+      end
+
       private
 
       def url
         "http://#{host}:#{port}"
       end
 
-      def get(path)
-        response = connection.get(path)
+      def get(path, params = {})
+        response = connection.get(path, params)
         if response.success?
           JSON.parse(response.body)
         else

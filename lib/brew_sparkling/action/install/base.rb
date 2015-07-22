@@ -7,12 +7,7 @@ module BrewSparkling
       class Base
         def recipe
           # dummy
-          code = <<-END
-          echo hello
-          echo hoge
-          END
-
-          Recipe::Recipe.new 'hello', 'https://github.com/mzp/helloworld-ios/archive/0.4.0.tar.gz', '0.4.0', 'ios-app-sample' do
+          Recipe::Recipe.new 'hello', 'https://github.com/mzp/helloworld-ios/archive/0.4.0.tar.gz', '0.4.0', 'ios-app-sample', 'jp.mzp.ios-app-sample' do
             system <<-END
             cd #{build_path}/helloworld-ios-0.4.0/
             xcodebuild -scheme ios-app-sample -archivePath #{archive_path} archive #{xcpretty}

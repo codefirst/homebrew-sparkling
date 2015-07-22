@@ -4,11 +4,12 @@ require 'brew_sparkling/action/install/unpack'
 require 'brew_sparkling/action/install/build'
 require 'brew_sparkling/action/install/install_app'
 require 'brew_sparkling/action/install/change_id'
+require 'brew_sparkling/action/install/request_provisioning'
 
 module BrewSparkling
   module Handler
     class Install < Base
-      command :fetch, :unpack, :build, :install_app, :change_id
+      command :fetch, :unpack, :build, :install_app, :change_id, :request_provisioning
 
       def fetch(name=nil)
         Action::Install::Fetch.new.call
@@ -28,6 +29,10 @@ module BrewSparkling
 
       def change_id
         Action::Install::ChangeId.new.call
+      end
+
+      def request_provisioning
+        Action::Install::RequestProvisioning.new.call
       end
     end
   end

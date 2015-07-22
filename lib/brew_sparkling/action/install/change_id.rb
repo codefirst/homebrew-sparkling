@@ -1,5 +1,4 @@
 require 'plist'
-require 'pp'
 
 module BrewSparkling
   module Action

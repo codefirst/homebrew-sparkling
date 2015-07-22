@@ -4,7 +4,7 @@ module BrewSparkling
       class Devices < Base
         def call
           gateway.devices.each do |device|
-            puts "#{device.name}" if device.platform == 'iphoneos'
+            puts "#{device.name}"
           end
         end
       end

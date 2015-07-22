@@ -4,13 +4,14 @@ module BrewSparkling
   module Recipe
     class Recipe
 
-      attr_reader :name, :url, :version, :app_name
+      attr_reader :name, :url, :version, :app_name, :app_id
 
-      def initialize(name, url, version, app_name, &build_code)
+      def initialize(name, url, version, app_name, app_id, &build_code)
         @name = name
         @url = url
         @version = version
         @app_name = app_name
+        @app_id = app_id
         @build_code = build_code
       end
 
