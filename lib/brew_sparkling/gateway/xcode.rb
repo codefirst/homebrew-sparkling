@@ -36,7 +36,9 @@ module BrewSparkling
       end
 
       def devices
-        get('/devices').map { |device| OpenStruct.new(device) }
+        get('/devices')
+          .map { |device| OpenStruct.new(device) }
+          .select { |device| device.platform == 'iphoneos' }
       end
 
       def accounts
