@@ -49,6 +49,12 @@ module BrewSparkling
         get('/certificates').map { |device| OpenStruct.new(device) }
       end
 
+      def request_provisioning(account, certificate, device)
+        get('/request_provisioning', username: account.username,
+                                     certificateName: certificate.commonName,
+                                     deviceName: device.name)
+      end
+
       private
 
       def url

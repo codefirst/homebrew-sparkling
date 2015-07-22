@@ -5,14 +5,24 @@ module BrewSparkling
   class User
     def account
       @account ||= find_or_first(accounts) { |account|
-        account.username == ENV['BREW_SPARKLING_USERNAME']
+        account.username == env(:username)
       }
     end
 
     def certificate
       @certificate ||= find_or_first(certificates) { |certificate|
-        certificate.commonName == ENV['BREW_SPARKLING_CERTIFICATE']
+        certificate.commonName == env(:certificate)
       }
+    end
+
+    def device
+      @device ||= find_or_first(devices) { |device|
+        device.name == env(:device)
+      }
+    end
+
+    def gateway
+      @gateway ||= Gateway::Xcode.default
     end
 
     def postfix
@@ -29,8 +39,12 @@ module BrewSparkling
       @certificates ||= gateway.certificates
     end
 
-    def gateway
-      @gateway ||= Gateway::Xcode.default
+    def devices
+      @devices ||= gateway.devices
+    end
+
+    def env(name)
+      ENV["BREW_SPARKLING_#{name.to_s.upcase}"]
     end
 
     def find_or_first(xs, &f)
