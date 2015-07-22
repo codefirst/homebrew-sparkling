@@ -1,4 +1,5 @@
 require 'brew_sparkling/recipe/recipe'
+require 'brew_sparkling/user'
 
 module BrewSparkling
   module Action
@@ -17,6 +18,10 @@ module BrewSparkling
             xcodebuild -scheme ios-app-sample -archivePath #{archive_path} archive #{xcpretty}
             END
           end
+        end
+
+        def user
+          User.new
         end
 
         def tarball_path
