@@ -49,10 +49,11 @@ module BrewSparkling
         get('/certificates').map { |device| OpenStruct.new(device) }
       end
 
-      def request_provisioning(account, certificate, device)
+      def request_provisioning(account, certificate, device, bundle_id)
         get('/request_provisioning', username: account.username,
                                      certificateName: certificate.commonName,
-                                     deviceName: device.name)
+                                     deviceName: device.name,
+                                     bundleIdentifier: bundle_id)
       end
 
       private
@@ -61,8 +62,8 @@ module BrewSparkling
         "http://#{host}:#{port}"
       end
 
-      def get(path)
-        response = connection.get(path)
+      def get(path, params = {})
+        response = connection.get(path, params)
         if response.success?
           JSON.parse(response.body)
         else
