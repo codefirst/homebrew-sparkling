@@ -1,22 +1,25 @@
-require 'brew_sparkling/recipe/recipe'
 require 'brew_sparkling/user'
+require 'brew_sparkling/recipe/recipes'
 
 module BrewSparkling
   module Action
     module Install
       class Base
+        attr_reader :name
+        def initialize(name)
+          @name = name
+        end
+
         def recipe
-          # dummy
-          Recipe::Recipe.new 'hello', 'https://github.com/mzp/helloworld-ios/archive/0.4.0.tar.gz', '0.4.0', 'ios-app-sample', 'jp.mzp.ios-app-sample' do
-            system <<-END
-            cd #{build_path}/helloworld-ios-0.4.0/
-            xcodebuild -scheme ios-app-sample -archivePath #{archive_path} archive #{xcpretty}
-            END
-          end
+          recipes.find { |recipe| recipe.name == name }
         end
 
         def user
           User.new
+        end
+
+        def recipes
+          @@recipes ||= BrewSparkling::Recipe::Recipes.default
         end
 
         def tarball_path

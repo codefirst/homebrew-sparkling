@@ -2,19 +2,7 @@ require 'brew_sparkling/location'
 
 module BrewSparkling
   module Recipe
-    class Recipe
-
-      attr_reader :name, :url, :version, :app_name, :app_id
-
-      def initialize(name, url, version, app_name, app_id, &build_code)
-        @name = name
-        @url = url
-        @version = version
-        @app_name = app_name
-        @app_id = app_id
-        @build_code = build_code
-      end
-
+    Entry = Struct.new :name, :url, :version, :bundle_identifier,:build_code do
       def build_path
         Location.build_path.join(name, version)
       end
@@ -32,7 +20,7 @@ module BrewSparkling
       end
 
       def app_path
-        Location.archive_path.join(name, "#{version}.xcarchive", 'Products', 'Applications', "#{app_name}.app")
+        Location.archive_path.join(name, "#{version}.xcarchive", 'Products', 'Applications', "#{name}.app")
       end
 
       def xcpretty
@@ -44,7 +32,7 @@ module BrewSparkling
       end
 
       def build
-        instance_eval(&@build_code)
+        instance_eval(&build_code)
       end
 
       private
