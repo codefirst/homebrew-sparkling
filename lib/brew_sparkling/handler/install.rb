@@ -11,39 +11,39 @@ module BrewSparkling
     class Install < Base
       command :install
 
-      def fetch(name=nil)
-        Action::Install::Fetch.new.call
+      def fetch(name)
+        Action::Install::Fetch.new(name).call
       end
 
-      def unpack(name=nil)
-        Action::Install::Unpack.new.call
+      def unpack(name)
+        Action::Install::Unpack.new(name).call
       end
 
-      def build(name=nil)
-        Action::Install::Build.new.call
+      def build(name)
+        Action::Install::Build.new(name).call
       end
 
-      def install_app
-        Action::Install::InstallApp.new.call
+      def install_app(name)
+        Action::Install::InstallApp.new(name).call
       end
 
-      def change_id
-        Action::Install::ChangeId.new.call
+      def change_id(name)
+        Action::Install::ChangeId.new(name).call
       end
 
-      def request_provisioning
-        Action::Install::RequestProvisioning.new.call
+      def request_provisioning(name)
+        Action::Install::RequestProvisioning.new(name).call
       end
 
-      def install
-        unpack
+      def install(name)
+        unpack name
 
-        change_id
-        request_provisioning
+        change_id name
+        request_provisioning name
 
-        build
+        build name
 
-        install_app
+        install_app name
       end
     end
   end
