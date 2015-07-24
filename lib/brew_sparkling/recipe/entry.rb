@@ -2,18 +2,7 @@ require 'brew_sparkling/location'
 
 module BrewSparkling
   module Recipe
-    class Recipe
-
-      attr_reader :name, :url, :version, :app_id
-
-      def initialize(name, url, version, app_id, &build_code)
-        @name = name
-        @url = url
-        @version = version
-        @app_id = app_id
-        @build_code = build_code
-      end
-
+    Entry = Struct.new :name, :url, :version, :bundle_identifier,:build_code do
       def build_path
         Location.build_path.join(name, version)
       end
@@ -43,7 +32,7 @@ module BrewSparkling
       end
 
       def build
-        instance_eval(&@build_code)
+        instance_eval(&build_code)
       end
 
       private
