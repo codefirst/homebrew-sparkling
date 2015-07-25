@@ -35,15 +35,17 @@ module BrewSparkling
         Action::Install::RequestProvisioning.new(name).call
       end
 
-      def install(name)
-        unpack name
+      def install
+        args.each do |name|
+          unpack name
 
-        change_id name
-        request_provisioning name
+          change_id name
+          request_provisioning name
 
-        build name
+          build name
 
-        install_app name
+          install_app name
+        end
       end
     end
   end
