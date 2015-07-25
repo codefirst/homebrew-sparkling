@@ -14,6 +14,8 @@ module BrewSparkling
       class ChangeId < Base
 
         def call
+          logger.start "Add postfix to bundle identifier: #{user.postfix}"
+
           update_info_plist do |plist|
             update_hash plist, 'CFBundleIdentifier' do |original|
               "#{original}.#{user.postfix}"

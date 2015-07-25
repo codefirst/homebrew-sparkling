@@ -10,6 +10,10 @@ module BrewSparkling
           @name = name
         end
 
+        def logger
+          @logger ||= Logger.default
+        end
+
         def recipe
           recipes.find { |recipe| recipe.name == name }
         end

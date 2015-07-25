@@ -3,7 +3,7 @@ module BrewSparkling
     module Install
       class Build < Base
         def call
-          puts "Build to: #{recipe.archive_path}"
+          logger.start "Build to: #{recipe.archive_path}"
           recipe.build
         end
       end
