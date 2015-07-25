@@ -25,7 +25,7 @@ module BrewSparkling
 
       def xcpretty
         @xcpretty ||= if system('which xcpretty > /dev/null')
-                        '| xcpretty'
+                        '| xcpretty --color'
                       else
                         ''
                       end
