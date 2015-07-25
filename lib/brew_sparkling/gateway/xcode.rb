@@ -56,11 +56,11 @@ module BrewSparkling
                                      bundleIdentifier: bundle_id)
       end
 
-      private
-
       def url
         "http://#{host}:#{port}"
       end
+
+      private
 
       def get(path, params = {})
         response = connection.get(path, params)

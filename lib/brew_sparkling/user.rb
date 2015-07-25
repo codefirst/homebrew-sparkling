@@ -4,28 +4,44 @@ require 'digest/sha1'
 
 module BrewSparkling
   class User
+    class <<self
+      def default
+        @user ||= new
+      end
+    end
+
     def account
       @account ||= find_or_first(accounts) { |account|
         account.username == env(:username)
+      }.tap { |account|
+        logger.info "Account: #{account.username} (#{env_name(:username)}"
       }
     end
 
     def certificate
       @certificate ||= find_or_first(certificates) { |certificate|
         certificate.commonName == env(:certificate)
+      }.tap { |certificate|
+        logger.info "Certificate: #{certificate.commonName} (#{env_name(:certificates)})"
       }
     end
 
     def device
       @device ||= find_or_first(devices) { |device|
         device.name == env(:device)
+      }.tap { |device|
+        logger.info "Device: #{device.name} (#{env_name(:device)})"
       }
     end
 
     def gateway
-      @gateway ||= Gateway::Xcode.default || error(<<-END)
-cannot discover Xcode. Please invoke Xcode, or install SparklingHelper properly.
-      END
+      @gateway ||= Gateway::Xcode.default.tap do |gateway|
+        if gateway
+          logger.info "Xcode gateway: #{gateway.url}"
+        else
+          error 'cannot discover Xcode. Please invoke Xcode.'
+        end
+      end
     end
 
     def postfix
@@ -51,8 +67,12 @@ cannot discover Xcode. Please invoke Xcode, or install SparklingHelper properly.
       @devices ||= gateway.devices
     end
 
+    def env_name(name)
+      "BREW_SPARKLING_#{name.to_s.upcase}"
+    end
+
     def env(name)
-      ENV["BREW_SPARKLING_#{name.to_s.upcase}"]
+      ENV[env_name(name)]
     end
 
     def find_or_first(xs, &f)
@@ -61,7 +81,7 @@ cannot discover Xcode. Please invoke Xcode, or install SparklingHelper properly.
     end
 
     def logger
-      Logger.default
+      @logger ||= Logger.default
     end
   end
 end

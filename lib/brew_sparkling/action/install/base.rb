@@ -19,7 +19,7 @@ module BrewSparkling
         end
 
         def user
-          User.new
+          User.default
         end
 
         def recipes
