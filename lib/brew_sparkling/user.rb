@@ -1,3 +1,4 @@
+require 'brew_sparkling/logger'
 require 'brew_sparkling/gateway/xcode'
 require 'digest/sha1'
 
@@ -22,7 +23,9 @@ module BrewSparkling
     end
 
     def gateway
-      @gateway ||= Gateway::Xcode.default
+      @gateway ||= Gateway::Xcode.default || error(<<-END)
+cannot discover Xcode. Please invoke Xcode, or install SparklingHelper properly.
+      END
     end
 
     def postfix
@@ -30,6 +33,11 @@ module BrewSparkling
     end
 
     private
+
+    def error(message)
+      logger.error message
+      exit 1
+    end
 
     def accounts
       @accounts ||= gateway.accounts
@@ -50,6 +58,10 @@ module BrewSparkling
     def find_or_first(xs, &f)
       first = proc { xs.first }
       xs.find(first, &f)
+    end
+
+    def logger
+      Logger.default
     end
   end
 end
