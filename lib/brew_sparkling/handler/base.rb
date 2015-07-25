@@ -8,6 +8,11 @@ module BrewSparkling
           end
         end
       end
+
+      attr_reader :args
+      def initialize(args)
+        @args = args
+      end
     end
   end
 end

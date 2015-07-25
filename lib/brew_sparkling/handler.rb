@@ -7,8 +7,8 @@ module BrewSparkling
       end
 
       def invoke(name, args)
-        command = @@command[name].new
-        command.send name, *args
+        command = @@command[name].new(args)
+        command.send name
       end
 
       def exist?(name)

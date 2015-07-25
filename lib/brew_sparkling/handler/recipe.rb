@@ -6,8 +6,10 @@ module BrewSparkling
     class Recipe < Base
       command :search, :list
 
-      def search(name, *_)
-        Action::Recipe::Search.new.call(name)
+      def search
+        args.each do |name|
+          Action::Recipe::Search.new.call(name)
+        end
       end
 
       def list

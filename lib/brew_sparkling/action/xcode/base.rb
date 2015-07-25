@@ -4,8 +4,12 @@ module BrewSparkling
       class Base
         private
 
+        def user
+          @user ||= User.new
+        end
+
         def gateway
-          Gateway::Xcode.default
+          user.gateway
         end
       end
     end
