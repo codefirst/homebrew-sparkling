@@ -1,3 +1,5 @@
+require 'brew_sparkling/logger'
+
 # Adapter for homebrew-fork
 module Hbc
   module SystemCommand
@@ -23,7 +25,7 @@ module Hbc
     attr_reader :name, :url, :uri_object, :version
 
     def ohai(*args)
-      puts args
+      logger.start args.join(' ')
     end
 
     def initialize(recipe, _ = nil)
@@ -37,6 +39,10 @@ module Hbc
     def fetch; end
     def cached_location; end
     def clear_cache; end
+
+    def logger
+      @logger ||= ::BrewSparkling::Logger.default
+    end
   end
 end
 
