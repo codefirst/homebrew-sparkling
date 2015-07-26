@@ -1,0 +1,542 @@
+have_header: checking for dns_sd.h... -------------------- yes
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib      -lruby-static  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"clang -E -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <dns_sd.h>
+/* end */
+
+--------------------
+
+have_library: checking for main() in -ldnssd... -------------------- no
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib      -lruby-static -ldnssd  -lpthread -ldl -lobjc "
+conftest.c:5:57: error: use of undeclared identifier 'main'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib      -lruby-static -ldnssd  -lpthread -ldl -lobjc "
+conftest.c:5:15: warning: implicit declaration of function 'main' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { main(); return 0; }
+              ^
+1 warning generated.
+ld: library not found for -ldnssd
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { main(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_library: checking for main() in -ldns_sd... -------------------- no
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib      -lruby-static -ldns_sd  -lpthread -ldl -lobjc "
+conftest.c:5:57: error: use of undeclared identifier 'main'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib      -lruby-static -ldns_sd  -lpthread -ldl -lobjc "
+conftest.c:5:15: warning: implicit declaration of function 'main' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { main(); return 0; }
+              ^
+1 warning generated.
+ld: library not found for -ldns_sd
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { main(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_library: checking for main() in -lmdns... -------------------- no
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib      -lruby-static -lmdns  -lpthread -ldl -lobjc "
+conftest.c:5:57: error: use of undeclared identifier 'main'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib      -lruby-static -lmdns  -lpthread -ldl -lobjc "
+conftest.c:5:15: warning: implicit declaration of function 'main' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { main(); return 0; }
+              ^
+1 warning generated.
+ld: library not found for -lmdns
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { main(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_library: checking for main() in -lSystem... -------------------- yes
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib      -lruby-static -lSystem  -lpthread -ldl -lobjc "
+conftest.c:5:57: error: use of undeclared identifier 'main'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib      -lruby-static -lSystem  -lpthread -ldl -lobjc "
+conftest.c:5:15: warning: implicit declaration of function 'main' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { main(); return 0; }
+              ^
+1 warning generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { main(); return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+have_macro: checking for htons in arpa/inet.h... -------------------- yes
+
+"clang -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <arpa/inet.h>
+4: /*top*/
+5: #ifndef htons
+6: # error
+7: |:/ === htons undefined === /:|
+8: #endif
+/* end */
+
+--------------------
+
+have_macro: checking for ntohs in arpa/inet.h... -------------------- yes
+
+"clang -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <arpa/inet.h>
+4: /*top*/
+5: #ifndef ntohs
+6: # error
+7: |:/ === ntohs undefined === /:|
+8: #endif
+/* end */
+
+--------------------
+
+have_header: checking for iphlpapi.h... -------------------- no
+
+"clang -E -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: 'iphlpapi.h' file not found
+#include <iphlpapi.h>
+         ^
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <iphlpapi.h>
+/* end */
+
+--------------------
+
+have_func: checking for if_indextoname() in sys/types.h,sys/socket.h,net/if.h... -------------------- yes
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib     -lSystem  -lruby-static -lSystem  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <sys/types.h>
+ 4: #include <sys/socket.h>
+ 5: #include <net/if.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int t(void) { void ((*volatile p)()); p = (void ((*)()))if_indextoname; return 0; }
+10: int main(int argc, char **argv)
+11: {
+12:   if (argc > 1000000) {
+13:     printf("%p", &t);
+14:   }
+15: 
+16:   return 0;
+17: }
+/* end */
+
+--------------------
+
+have_func: checking for if_nametoindex() in sys/types.h,sys/socket.h,net/if.h... -------------------- yes
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib     -lSystem  -lruby-static -lSystem  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <sys/types.h>
+ 4: #include <sys/socket.h>
+ 5: #include <net/if.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int t(void) { void ((*volatile p)()); p = (void ((*)()))if_nametoindex; return 0; }
+10: int main(int argc, char **argv)
+11: {
+12:   if (argc > 1000000) {
+13:     printf("%p", &t);
+14:   }
+15: 
+16:   return 0;
+17: }
+/* end */
+
+--------------------
+
+have_type: checking for struct sockaddr_in in netinet/in.h... -------------------- yes
+
+"clang -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <netinet/in.h>
+4: 
+5: /*top*/
+6: typedef struct sockaddr_in conftest_type;
+7: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_struct_member: checking for struct sockaddr_in.sin_len in netinet/in.h... -------------------- yes
+
+"clang -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <netinet/in.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((struct sockaddr_in*)0)->sin_len - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_func: checking for DNSServiceGetProperty() in dns_sd.h... -------------------- yes
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib     -lSystem  -lruby-static -lSystem  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <dns_sd.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))DNSServiceGetProperty; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
+have_func: checking for DNSServiceGetAddrInfo() in dns_sd.h... -------------------- yes
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib     -lSystem  -lruby-static -lSystem  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <dns_sd.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))DNSServiceGetAddrInfo; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
+have_func: checking for kDNSServiceFlagsForce() in dns_sd.h... -------------------- yes
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib     -lSystem  -lruby-static -lSystem  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <dns_sd.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))kDNSServiceFlagsForce; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
+have_func: checking for kDNSServiceFlagsNonBrowsable() in dns_sd.h... -------------------- yes
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib     -lSystem  -lruby-static -lSystem  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <dns_sd.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))kDNSServiceFlagsNonBrowsable; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
+have_func: checking for kDNSServiceFlagsReturnIntermediates() in dns_sd.h... -------------------- yes
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib     -lSystem  -lruby-static -lSystem  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <dns_sd.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))kDNSServiceFlagsReturnIntermediates; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
+have_func: checking for kDNSServiceFlagsShareConnection() in dns_sd.h... -------------------- yes
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib     -lSystem  -lruby-static -lSystem  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <dns_sd.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))kDNSServiceFlagsShareConnection; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
+have_func: checking for kDNSServiceErr_BadSig() in dns_sd.h... -------------------- yes
+
+"clang -o conftest -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib -L. -L/Users/mzp/.rbenv/versions/2.0.0-p645/lib     -lSystem  -lruby-static -lSystem  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <dns_sd.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))kDNSServiceErr_BadSig; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
+have_header: checking for ruby/encoding.h... -------------------- yes
+
+"clang -E -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/x86_64-darwin14.4.0 -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0/ruby/backward -I/Users/mzp/.rbenv/versions/2.0.0-p645/include/ruby-2.0.0 -I. -I/Users/mzp/.rbenv/versions/2.0.0-p645/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby/encoding.h>
+/* end */
+
+--------------------
+
