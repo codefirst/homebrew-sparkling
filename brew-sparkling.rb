@@ -12,7 +12,7 @@ class BrewSparkling < Formula
     plugin.install 'plugin/SparklingHelper.xcplugin'
 
     # install sparkling command
-    prefix.install 'Sparkling', 'bin', 'recipe', 'lib', 'gems'
+    prefix.install 'bin', 'recipe', 'lib', 'gems'
     (bin+"brew-sparkling").chmod 0755
   end
 
