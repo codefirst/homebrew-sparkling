@@ -10,8 +10,6 @@
 
 ## Install
 
-**not yet**
-
 ```
 brew install codefirst/sparkling/brew-sparkling --HEAD
 ```
