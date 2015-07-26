@@ -4,11 +4,9 @@
 
 ## Features
 
-**not yet**
-
  * Search sparkling recipe.
  * Install iOS app to your device via lingtning cable.
- * Manage iOS app installed by brew sparkling.
+ * Manage iOS app installed by brew sparkling. (not yet)
 
 ## Install
 
@@ -51,4 +49,17 @@ brew sparkling devices
 
 #### Build iOS App
 
-**not yet**
+```sh
+# install recipe
+brew sparkling install <recipe name>
+```
+
+#### Manage Recipe
+
+```sh
+# list all recipes
+brew sparkling list
+
+# search recipes
+brew sparkling search <search word>
+```
