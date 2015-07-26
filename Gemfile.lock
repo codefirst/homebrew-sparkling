@@ -7,7 +7,6 @@ GEM
       multipart-post (>= 1.2, < 3)
     multipart-post (2.0.0)
     plist (3.1.0)
-    xcpretty (0.1.10)
 
 PLATFORMS
   ruby
@@ -17,7 +16,6 @@ DEPENDENCIES
   dnssd
   faraday
   plist
-  xcpretty
 
 BUNDLED WITH
-   1.10.5
+   1.10.6
