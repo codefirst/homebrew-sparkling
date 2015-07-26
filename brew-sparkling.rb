@@ -8,8 +8,15 @@ class BrewSparkling < Formula
   depends_on "mobiledevice" => :build
 
   def install
-    prefix.install "lib" => "lib"
-    prefix.install "Sparkling", "bin"
+    # install xcode plugin
+    plugin.install 'plugin/SparklingHelper.xcplugin'
+
+    # install sparkling command
+    prefix.install 'Sparkling', 'bin', 'recipe', 'lib', 'gems'
     (bin+"brew-sparkling").chmod 0755
+  end
+
+  def plugin
+    @plugin ||= Pathname('~/Library/Application Support/Developer/Shared/Xcode/Plug-ins').expand_path
   end
 end
