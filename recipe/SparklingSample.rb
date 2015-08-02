@@ -5,9 +5,6 @@ recipe do
   bundle_identifier 'org.codefirst.SparklingSample'
 
   build do
-    system <<-END
-            cd #{build_path}/SparklingSample-1.0.1/
-            xcodebuild -scheme SparklingSample -archivePath #{archive_path} archive #{xcpretty}
-            END
+    xcodebuild_archive(scheme: 'SparklingSample')
   end
 end
