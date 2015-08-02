@@ -1,6 +1,7 @@
 require 'brew_sparkling/action/install/base'
 require 'brew_sparkling/action/install/fetch'
 require 'brew_sparkling/action/install/unpack'
+require 'brew_sparkling/action/install/patch'
 require 'brew_sparkling/action/install/build'
 require 'brew_sparkling/action/install/install_app'
 require 'brew_sparkling/action/install/change_id'
@@ -42,6 +43,7 @@ module BrewSparkling
           change_id name
           request_provisioning name
 
+          Action::Install::Patch.new(name).call
           build name
 
           install_app name

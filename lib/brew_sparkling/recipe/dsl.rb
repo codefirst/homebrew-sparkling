@@ -9,7 +9,7 @@ module BrewSparkling
           @entry = entry
         end
 
-        %i(name bundle_identifier url version).each do |name|
+        %i(name bundle_identifier url version patch).each do |name|
           define_method name do |value|
             entry.send(:"#{name}=", value)
           end

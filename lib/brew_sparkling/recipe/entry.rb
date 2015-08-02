@@ -2,7 +2,7 @@ require 'brew_sparkling/location'
 
 module BrewSparkling
   module Recipe
-    Entry = Struct.new :name, :url, :version, :bundle_identifier,:build_code do
+    Entry = Struct.new :name, :url, :version, :bundle_identifier, :build_code, :patch do
       def build_path
         Location.build_path.join(name, version)
       end
