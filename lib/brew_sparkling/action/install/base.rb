@@ -29,6 +29,19 @@ module BrewSparkling
         def tarball_path
           @tarball_path ||= Homebrew::Download.new(recipe).call
         end
+
+        def at_build_path(&f)
+          subdir = recipe.build_path.children
+
+          case subdir.size
+          when 0
+            fail 'Empty Archive'
+          when 1
+            Dir.chdir(subdir.first, &f)
+          else
+            Dir.chdir(recipe.build_path, &f)
+          end
+        end
       end
     end
   end
