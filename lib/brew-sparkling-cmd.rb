@@ -1,4 +1,5 @@
 require 'pathname'
+require 'net/http'
 
 # setup path
 cwd = File.expand_path('..', Pathname.new(__FILE__).realpath)
