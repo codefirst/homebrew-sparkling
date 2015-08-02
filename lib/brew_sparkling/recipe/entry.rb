@@ -23,6 +23,16 @@ module BrewSparkling
         Location.archive_path.join(name, "#{version}.xcarchive", 'Products', 'Applications', "#{name}.app")
       end
 
+      def build
+        instance_eval(&build_code)
+      end
+
+      def xcodebuild_archive(scheme:)
+        system "xcodebuild -scheme #{scheme} -archivePath #{archive_path} archive #{xcpretty}"
+      end
+
+      private
+
       def xcpretty
         @xcpretty ||= if system('which xcpretty > /dev/null')
                         '| xcpretty --color'
@@ -30,12 +40,6 @@ module BrewSparkling
                         ''
                       end
       end
-
-      def build
-        instance_eval(&build_code)
-      end
-
-      private
 
       def traversal(path, &f)
         directories = [ path ]
