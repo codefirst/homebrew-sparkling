@@ -44,7 +44,7 @@ module BrewSparkling
       end
     end
 
-    def postfix
+    def prefix
       Digest::SHA1.hexdigest account.username
     end
 
