@@ -1,16 +1,18 @@
-recipe do
-  name 'NumberTileGame'
-  url 'https://github.com/austinzheng/iOS-2048/archive/master.tar.gz'
+class NumberTileGame < BrewSparkling::Recipe::Builder
+  github 'austinzheng/iOS-2048', branch: 'master'
   version '1.0'
   bundle_identifier 'f3nghuang.NumberTileGame'
 
-  build do
+  def build
     Dir.chdir('NumberTileGame') {
       xcodebuild_archive(scheme: 'NumberTileGame')
     }
   end
 
-  patch <<-PATCH
+  patch :DATA
+end
+
+__END__
 diff --git a/NumberTileGame/NumberTileGame.xcodeproj/project.pbxproj b/NumberTileGame/NumberTileGame.xcodeproj/project.pbxproj
 index f90d717..4f156e9 100644
 --- a/NumberTileGame/NumberTileGame.xcodeproj/project.pbxproj
