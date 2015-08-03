@@ -3,9 +3,12 @@ module BrewSparkling
     module Install
       class RequestProvisioning < Base
         def call
-          bundle_id = "#{recipe.bundle_identifier}.#{user.postfix}"
-          logger.start "Request provisioning: #{bundle_id}"
-          user.gateway.request_provisioning(user.account, user.certificate, user.device, bundle_id)
+          logger.start "Request provisioning"
+          recipe.bundle_identifiers.each do |id|
+            bundle_id = "#{user.prefix}.#{id}"
+            logger.info bundle_id
+            user.gateway.request_provisioning(user.account, user.certificate, user.device, bundle_id)
+          end
         end
       end
     end
