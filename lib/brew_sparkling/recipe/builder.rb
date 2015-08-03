@@ -14,7 +14,8 @@ module BrewSparkling
           url "https://github.com/#{path}/archive/#{branch}.tar.gz"
         end
 
-        %i(bundle_identifier url version).each do |name|
+        # simple getter definition
+        %i(bundle_identifiers url version).each do |name|
           define_method name do |value|
             define_method(name) { value }
           end
@@ -37,6 +38,10 @@ module BrewSparkling
             # inline string
             define_method(:patch) { value }
           end
+        end
+
+        def bundle_identifier(name)
+          bundle_identifiers [name]
         end
       end
 
