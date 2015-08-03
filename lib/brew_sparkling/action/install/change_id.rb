@@ -14,12 +14,15 @@ module BrewSparkling
       class ChangeId < Base
 
         def call
-          logger.start "Add postfix to bundle identifier: #{user.postfix}"
+          logger.start "Add prefix to bundle identifier: #{user.prefix}"
 
           update_info_plist do |plist|
-            update_hash plist, 'CFBundleIdentifier' do |original|
-              "#{original}.#{user.postfix}"
+            update! plist, %w(CFBundleIdentifier WKCompanionAppBundleIdentifier WKAppBundleIdentifier) do |key, original|
+             "#{user.prefix}.#{original}".tap { |id|
+               logger.info "#{key}: #{original} => #{id}"
+             }
             end
+            plist
           end
         end
 
@@ -41,6 +44,16 @@ module BrewSparkling
           end
 
           hash
+        end
+
+        def update!(hash, keys, &f)
+          hash.each do |key, value|
+            if keys.include?(key)
+              hash[key] = f.call(key, value)
+            elsif value.is_a?(Hash)
+              update!(value, keys, &f)
+            end
+          end
         end
       end
     end
