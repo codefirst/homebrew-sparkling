@@ -1,4 +1,6 @@
-require 'brew_sparkling/recipe/dsl'
+require 'brew_sparkling/recipe/builder'
+require 'brew_sparkling/recipe/extension/path'
+require 'brew_sparkling/recipe/Extension/build'
 
 module BrewSparkling
   module Recipe
@@ -27,9 +29,17 @@ module BrewSparkling
       end
 
       def entries
-        @entries = path.children
-          .select { |path| path.basename.fnmatch?('*.rb') }
-          .map { |path| dsl.eval File.read(path) }
+        @entries ||= begin
+                       paths = path.children
+                         .select { |path| path.basename.fnmatch?('*.rb') }
+                         .each { |path| load path; path }
+                       Builder.all.zip(paths).map do |klass, path|
+                         klass.new(path).tap do |obj|
+                           obj.extend Extension::Path
+                           obj.extend Extension::Build
+                         end
+                       end
+                     end
       end
     end
   end

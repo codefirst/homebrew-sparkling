@@ -3,7 +3,7 @@ module BrewSparkling
     module Install
       class Patch < Base
         def call
-          return unless recipe.patch
+          return unless recipe.respond_to?(:patch)
 
           logger.start "Patch to: #{recipe.build_path}"
 

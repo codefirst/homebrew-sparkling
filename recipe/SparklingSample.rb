@@ -1,10 +1,9 @@
-recipe do
-  name 'SparklingSample'
-  url 'https://github.com/codefirst/SparklingSample/archive/1.0.1.tar.gz'
+class SparklingSample < BrewSparkling::Recipe::Builder
+  github 'codefirst/SparklingSample', branch: '1.0.1'
   version '1.0.1'
   bundle_identifier 'org.codefirst.SparklingSample'
 
-  build do
+  def build
     xcodebuild_archive(scheme: 'SparklingSample')
   end
 end
