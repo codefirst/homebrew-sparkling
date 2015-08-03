@@ -7,6 +7,11 @@ module BrewSparkling
         def call
           # snip from homebrew-cask
           logger.start "Unpackking #{tarball_path.basename} to: #{recipe.build_path}"
+
+          # cleanup
+          recipe.build_path.rmtree
+
+          # unpack
           Dir.mktmpdir do |unpack_dir|
             system('/usr/bin/tar', 'xf', tarball_path, '-C', unpack_dir)
             system('/usr/bin/ditto', '--', unpack_dir, recipe.build_path)
