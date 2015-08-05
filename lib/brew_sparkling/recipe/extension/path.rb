@@ -21,7 +21,7 @@ module BrewSparkling
         end
 
         def app_path
-          Location.archive_path.join(name, "#{version}.xcarchive", 'Products', 'Applications', executable_name)
+          Location.archive_path.join(name, "#{version}.xcarchive", 'Products', 'Applications', app_name)
         end
 
         def app_name

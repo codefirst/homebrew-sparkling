@@ -6,6 +6,7 @@ class BrewSparkling < Formula
   skip_clean "bin"
 
   depends_on "mobiledevice" => :build
+  depends_on "cocoapods" => :ruby
 
   def install
     # install xcode plugin
