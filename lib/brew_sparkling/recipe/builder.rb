@@ -15,7 +15,7 @@ module BrewSparkling
         end
 
         # simple getter definition
-        %i(bundle_identifiers url version).each do |name|
+        %i(bundle_identifiers url version executable_name).each do |name|
           define_method name do |value|
             define_method(name) { value }
           end
