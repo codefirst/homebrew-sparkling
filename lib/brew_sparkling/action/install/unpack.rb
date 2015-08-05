@@ -9,7 +9,7 @@ module BrewSparkling
           logger.start "Unpackking #{tarball_path.basename} to: #{recipe.build_path}"
 
           # cleanup
-          recipe.build_path.rmtree
+          recipe.build_path.rmtree rescue nil
 
           # unpack
           Dir.mktmpdir do |unpack_dir|
