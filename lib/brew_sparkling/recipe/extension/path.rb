@@ -21,7 +21,15 @@ module BrewSparkling
         end
 
         def app_path
-          Location.archive_path.join(name, "#{version}.xcarchive", 'Products', 'Applications', "#{name}.app")
+          Location.archive_path.join(name, "#{version}.xcarchive", 'Products', 'Applications', executable_name)
+        end
+
+        def app_name
+          if respond_to? :executable_name
+            executable_name
+          else
+            "#{name}.app"
+          end
         end
 
         private
