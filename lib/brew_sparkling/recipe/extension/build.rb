@@ -4,7 +4,7 @@ module BrewSparkling
       module Build
         def command(*args)
           unless system(*args)
-            fail 'command failed'
+            fail "command failed: #{args.join(' ')}"
           end
         end
 
@@ -16,10 +16,24 @@ module BrewSparkling
           command "xcodebuild #{extra_args} -archivePath #{archive_path} archive #{xcpretty}"
         end
 
+        def pod(*args)
+          unless which?('pod')
+            fail <<-END
+Cannot find command: pod
+Please install with: gem install cocoapods
+            END
+          end
+          command 'pod', *args
+        end
+
+        def which?(command)
+          system("which #{command} > /dev/null 2>&1")
+        end
+
         private
 
         def xcpretty
-          @xcpretty ||= if system('which xcpretty > /dev/null')
+          @xcpretty ||= if which?('xcpretty')
                           '| xcpretty --color'
                         else
                           ''
