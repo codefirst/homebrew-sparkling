@@ -11,7 +11,7 @@ module BrewSparkling
         def xcodebuild_archive(scheme: nil)
           extra_args = ""
           if scheme
-            extra_args << " -scheme #{scheme}"
+            extra_args << " -scheme '#{scheme}'"
           end
           command "xcodebuild #{extra_args} -archivePath #{archive_path} archive #{xcpretty}"
         end
