@@ -1,5 +1,5 @@
 class NumberTileGame < BrewSparkling::Recipe::Builder
-  github 'austinzheng/iOS-2048', branch: 'master'
+  github 'austinzheng/iOS-2048', branch: '7c0840a0f7bd77b01d6a36778a253f8f4b2e6529'
   version '1.0'
   bundle_identifier 'f3nghuang.NumberTileGame'
 

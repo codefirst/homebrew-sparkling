@@ -1,5 +1,5 @@
 class FlappySwift < BrewSparkling::Recipe::Builder
-  github 'fullstackio/FlappySwift', branch: 'master'
+  github 'fullstackio/FlappySwift', branch: 'e4da5dc8a7228c000c6e245f965765bfbd905e58'
   version '1.0'
   bundle_identifier 'io.fullstack.FlappyBird'
   executable_name 'FlappyBird.app'

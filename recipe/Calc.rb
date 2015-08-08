@@ -1,5 +1,5 @@
 class Calc < BrewSparkling::Recipe::Builder
-  github 'noodlewerk/Apple_Watch_Calculator', branch: 'master'
+  github 'noodlewerk/Apple_Watch_Calculator', branch: 'd0dc076be63e9e5c605ecef145d6da4c1fda11d0'
   version '1.0'
   bundle_identifiers %w(com.noodlewerk.Calc com.noodlewerk.Calc.watchapp com.noodlewerk.Calc.watchkitextension)
 

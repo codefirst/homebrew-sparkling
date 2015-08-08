@@ -1,5 +1,5 @@
 class Bridges2 < BrewSparkling::Recipe::Builder
-  github 'zgrossbart/bridges', branch: 'master'
+  github 'zgrossbart/bridges', branch: 'd41f8c3cec14121fbb535b9c476af17f7a9d1292'
   version '1.2'
   bundle_identifier 'com.zackgrossbart.--Bridges'
   executable_name '7 Bridges.app'

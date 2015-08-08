@@ -1,5 +1,5 @@
 class GameOfLife < BrewSparkling::Recipe::Builder
-  github 'yonbergman/swift-gameoflife', branch: 'master'
+  github 'yonbergman/swift-gameoflife', branch: 'fd31c2cea76d54312b4c4c42cebb3de318223881'
   version '1.0'
   bundle_identifier 'com.yonbergman.gameoflife'
   executable_name 'gameoflife.app'
