@@ -8,11 +8,17 @@ module BrewSparkling
           end
         end
 
-        def xcodebuild_archive(scheme: nil)
+        def xcodebuild_archive(workspace: nil, scheme: nil)
           extra_args = ""
+
+          if workspace
+            extra_args << " -workspace '#{workspace}'"
+          end
+
           if scheme
             extra_args << " -scheme '#{scheme}'"
           end
+
           command "xcodebuild #{extra_args} -archivePath #{archive_path} archive #{xcpretty}"
         end
 

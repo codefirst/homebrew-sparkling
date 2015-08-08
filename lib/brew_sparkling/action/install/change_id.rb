@@ -30,6 +30,10 @@ module BrewSparkling
 
         def update_info_plist(&f)
           recipe.info_plists.each do |info|
+            # convert to xml
+            system 'plutil', '-convert', 'xml1', info
+
+            # parse
             original = Plist::parse_xml(info)
 
             updated = f.call(original)
