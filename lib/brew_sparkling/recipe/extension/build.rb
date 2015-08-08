@@ -22,14 +22,12 @@ module BrewSparkling
           command "xcodebuild #{extra_args} -archivePath #{archive_path} archive #{xcpretty}"
         end
 
+        def bundle(*args)
+          gem_command 'bundle', gem_name: 'bundle', args: args
+        end
+
         def pod(*args)
-          unless which?('pod')
-            fail <<-END
-Cannot find command: pod
-Please install with: gem install cocoapods
-            END
-          end
-          command 'pod', *args
+          gem_command 'pod', gem_name: 'cocoapods', args: args
         end
 
         def which?(command)
@@ -37,6 +35,16 @@ Please install with: gem install cocoapods
         end
 
         private
+
+        def gem_command(name, gem_name: nil, args: [])
+          unless which?(name)
+            fail <<-END
+Cannot find command: #{name}
+Please install with: gem install #{gem_name}
+            END
+          end
+          command name, *args
+        end
 
         def xcpretty
           @xcpretty ||= if which?('xcpretty')
