@@ -1,5 +1,11 @@
 class Provenance < BrewSparkling::Recipe::Builder
   github 'jasarien/Provenance', branch: '1.1.5'
+  description <<END
+An iOS Frontend for multiple emulators, currently supporting Sega Genesis, Game Gear/Master System, Sega CD, SNES, NES, GB/GBC and GBA.
+
+http://jamesaddyman.com/provenance
+END
+
   version '1.1.5'
   bundle_identifier 'com.jamsoftonline.Provenance'
 

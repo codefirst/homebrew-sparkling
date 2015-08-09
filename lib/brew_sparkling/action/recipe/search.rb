@@ -4,7 +4,7 @@ module BrewSparkling
       class Search < Base
         def call(name)
           recipes.each do |recipe|
-            puts recipe.name if recipe.name =~ /#{name}/
+            puts recipe if recipe.name =~ /#{name}/
           end
         end
       end

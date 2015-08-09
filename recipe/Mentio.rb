@@ -1,5 +1,6 @@
 class Mentio < BrewSparkling::Recipe::Builder
   github 'mhaddl/mentio', branch: 'v2.0.2'
+  description 'Mentio for iOS is your personal media wish list, so you never forget a recommendation or a wish. http://mentioapp.com'
   version '2.0.2'
   bundle_identifier 'me.mhaddl.Mentio'
 
