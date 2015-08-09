@@ -1,6 +1,7 @@
 require 'brew_sparkling/recipe/builder'
 require 'brew_sparkling/recipe/extension/path'
-require 'brew_sparkling/recipe/Extension/build'
+require 'brew_sparkling/recipe/extension/build'
+require 'brew_sparkling/recipe/extension/info'
 
 module BrewSparkling
   module Recipe
@@ -37,6 +38,7 @@ module BrewSparkling
                          klass.new(path).tap do |obj|
                            obj.extend Extension::Path
                            obj.extend Extension::Build
+                           obj.extend Extension::Info
                          end
                        end
                      end

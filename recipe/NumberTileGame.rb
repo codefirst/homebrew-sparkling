@@ -1,5 +1,6 @@
 class NumberTileGame < BrewSparkling::Recipe::Builder
   github 'austinzheng/iOS-2048', branch: '7c0840a0f7bd77b01d6a36778a253f8f4b2e6529'
+  description 'OS drop-in library presenting a clean-room Objective-C/Cocoa implementation of the game 2048.'
   version '1.0'
   bundle_identifier 'f3nghuang.NumberTileGame'
 

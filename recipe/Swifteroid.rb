@@ -1,5 +1,6 @@
 class Swifteroid < BrewSparkling::Recipe::Builder
   github 'eugenpirogoff/swifteroid', branch: '6522b3480e3e96950a890fbd4cb31f9c1be9add0'
+  description 'Swifteroid is a Photo Application written in Swift in which the exposure button is mapped to the HDR function aka. bracketing on DSLR cameras.'
   version '1.0'
   bundle_identifier 'me.pirogoff.Swifteroid'
 

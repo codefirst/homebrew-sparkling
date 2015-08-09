@@ -1,5 +1,6 @@
 class StickHero < BrewSparkling::Recipe::Builder
   github 'phpmaple/Stick-Hero-Swift', branch: '0935f4924854c84ee97262457b9e975b874846e8'
+  description 'a universal iOS Game using Swift and iOS SpriteKit'
   version '1.0'
   bundle_identifier 'koofrank.ios.Stick-Hero'
   executable_name 'Stick-Hero.app'

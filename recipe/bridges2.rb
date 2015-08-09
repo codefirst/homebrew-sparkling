@@ -1,4 +1,5 @@
 class Bridges2 < BrewSparkling::Recipe::Builder
+  description 'A puzzle game with bridges, houses, tolls, and subways for iOS'
   github 'zgrossbart/bridges', branch: 'd41f8c3cec14121fbb535b9c476af17f7a9d1292'
   version '1.2'
   bundle_identifier 'com.zackgrossbart.--Bridges'
