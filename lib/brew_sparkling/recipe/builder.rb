@@ -54,6 +54,10 @@ module BrewSparkling
       def name
         self.class.to_s
       end
+
+      def plist?(name)
+        name.fnmatch? 'Info.plist'
+      end
     end
   end
 end
