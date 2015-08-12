@@ -15,7 +15,7 @@ module BrewSparkling
         def info_plists
           xs = []
           traversal build_path do |entry|
-            xs << entry if entry.basename.fnmatch? 'Info.plist'
+            xs << entry if plist?(entry.basename)
           end
           xs
         end

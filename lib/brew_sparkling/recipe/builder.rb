@@ -54,6 +54,14 @@ module BrewSparkling
       def name
         self.class.to_s
       end
+
+      def local_file(name)
+        path.join('..', name).read
+      end
+
+      def plist?(name)
+        name.fnmatch? 'Info.plist'
+      end
     end
   end
 end
