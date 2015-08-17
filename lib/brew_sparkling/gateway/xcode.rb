@@ -1,8 +1,8 @@
 require 'dnssd'
 require 'timeout'
-require 'faraday'
 require 'json'
 require 'ostruct'
+require 'net/http'
 
 module BrewSparkling
   module Gateway
@@ -63,8 +63,9 @@ module BrewSparkling
       private
 
       def get(path, params = {})
-        response = connection.get(path, params)
-        if response.success?
+        query = URI.encode_www_form(params)
+        response = connection.get("#{path}?#{query}")
+        if response.code == '200'
           JSON.parse(response.body)
         else
           fail ConnectionError, response.body
@@ -72,9 +73,7 @@ module BrewSparkling
       end
 
       def connection
-        @connection ||= Faraday.new(url: url) do |faraday|
-          faraday.adapter Faraday.default_adapter
-        end
+        @connection ||= Net::HTTP.new(host, port)
       end
     end
   end
