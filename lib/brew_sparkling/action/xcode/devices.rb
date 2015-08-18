@@ -3,8 +3,14 @@ module BrewSparkling
     module Xcode
       class Devices < Base
         def call
-          gateway.devices.each do |device|
-            puts "#{device.name}"
+          devices = gateway.devices
+
+          if devices.empty?
+              puts 'No deviecs'
+          else
+            devices.each do |device|
+              puts "#{device.name}"
+            end
           end
         end
       end
