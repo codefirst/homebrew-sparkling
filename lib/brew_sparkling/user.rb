@@ -30,7 +30,11 @@ module BrewSparkling
       @device ||= find_or_first(devices) { |device|
         device.name == env(:device)
       }.tap { |device|
-        logger.info "Device: #{device.name} (#{env_name(:device)})"
+        if device
+          logger.info "Device: #{device.name} (#{env_name(:device)})"
+        else
+          error 'cannot find iOS device. Please connect your device.'
+        end
       }
     end
 
