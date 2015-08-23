@@ -15,7 +15,12 @@ module BrewSparkling
         end
 
         def recipe
-          recipes.find { |recipe| recipe.name == name }
+          recipes.find { |recipe| recipe.name == name }.tap do |recipe|
+            unless recipe
+              logger.error "cannot find: #{name}"
+              exit 1
+            end
+          end
         end
 
         def user
