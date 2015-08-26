@@ -18,7 +18,7 @@ brew install codefirst/sparkling/brew-sparkling --HEAD
 
 ### Requirements
 
- * Xcode 7.0 beta 5 (7A176x)
+ * Xcode 7.0 beta 6 (7A192o)
  * [SparklingHelper](https://github.com/codefirst/SparklingHelper)
 
 ### Build
