@@ -65,6 +65,6 @@ brew sparkling search <search word>
 ## Limitations
 Because Sparkling uses [free provisioning](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/LaunchingYourApponDevices/LaunchingYourApponDevices.html#//apple_ref/doc/uid/TP40012582-CH27) to instal app, there are some limitations.
 
- * Cannot use any capability(e.g. AppGroup, AppInPurchase, ...)
+ * Cannot use any capability(e.g. AppGroup, In-App Purchase, ...)
  * Reinstall each apps per 3 months.
 
