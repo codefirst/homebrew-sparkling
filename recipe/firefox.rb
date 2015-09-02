@@ -13,7 +13,18 @@ class Firefox < BrewSparkling::Recipe::Builder
 
   def build
     system './checkout.sh'
-    xcodebuild_archive(scheme: 'FennecNightly')
+    xcodebuild_archive(scheme: 'Client')
+  end
+
+  def plist?(path)
+    %w(
+      Client/Info.plist
+      Extensions/ShareTo/Info.plist
+      Extensions/SendTo/Info.plist
+      Extensions/ViewLater/Info.plist
+    ).any? do |name|
+      path.fnmatch? "**/#{name}"
+    end
   end
 
   patch :DATA

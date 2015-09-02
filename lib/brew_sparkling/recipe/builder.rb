@@ -60,7 +60,7 @@ module BrewSparkling
       end
 
       def plist?(name)
-        name.fnmatch? 'Info.plist'
+        name.basename.fnmatch? 'Info.plist'
       end
     end
   end
