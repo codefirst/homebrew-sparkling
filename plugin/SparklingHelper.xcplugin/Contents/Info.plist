@@ -29,20 +29,21 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>7A192o</string>
+	<string>7A218</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>15A244e</string>
+	<string>15A278</string>
 	<key>DTSDKName</key>
 	<string>macosx10.11</string>
 	<key>DTXcode</key>
 	<string>0700</string>
 	<key>DTXcodeBuild</key>
-	<string>7A192o</string>
+	<string>7A218</string>
 	<key>DVTPlugInCompatibilityUUIDs</key>
 	<array>
 		<string>AABB7188-E14E-4433-AD3B-5CD791EAD9A3</string>
+		<string>0420B86A-AA43-4792-9ED0-6FE0F2B16A13</string>
 	</array>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.10</string>
