@@ -278,6 +278,9 @@ a:before, a:after {
 #features p {
 	text-align: center;
 }
+#screenshots {
+  padding: 60px 0;
+}
 #docs {
 	background: #f5f5f5;
 	padding: 60px 0;

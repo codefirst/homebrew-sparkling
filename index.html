@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Homebrew Sparkling - install iOS apps over Lightning</title>
+    <title>⚡️Homebrew Sparkling - install iOS apps over Lightning cable</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -41,6 +41,7 @@
               <li> <a href="#install" class="smoothScroll"> Install</a></li>
               <li> <a href="#features" class="smoothScroll"> Features</a></li>
               <li> <a href="#usage" class="smoothScroll"> Usage</a></li>
+              <li> <a href="#screenshots" class="smoothScroll"> Screenshots</a></li>
               <li> <a href="#docs" class="smoothScroll"> Documents</a></li>
             </ul>
           </div>
@@ -53,7 +54,7 @@
     <div id="headerwrap" name="home">
       <header class="clearfix"> <i class="fa fa-bolt icon"></i>
         <h1>Homebrew Sparkling</h1>
-        <p>Install iOS apps over Lightning without AppStore/Jailbreak.</p>
+        <p>Install iOS apps without AppStore/Jailbreak.</p>
         <a href="#install" class="smoothScroll btn btn-lg">Install now</a> </header>
     </div>
 
@@ -64,8 +65,15 @@
           <h2 class="centered">INSTALL</h2>
           <hr>
           <div class="col-md-8 col-md-offset-2">
+            <ol>
+              <li>Install <a href="http://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12" target="_blank">Xcode 7</a>.</li>
+              <li>Launch Xcode, and go to "Preferences" -&gt; "Accounts", register your AppleID.</li>
+              <li>Click "View Details" at right bottom, and create iOS Development signing Identifies.</li>
+              <li>Install <a href="http://brew.sh/" target="_blank">homebrew</a></li>
+              <li>Paste following at a Terminal prompt.</li>
+            </ol>
+
             <pre>brew install codefirst/sparkling/brew-sparkling --HEAD</pre>
-            <p>Install <a href="http://brew.sh/" target="_blank">homebrew</a>, and paste that at a Terminal prompt.</p>
           </div>
         </div>
     </div>
@@ -82,11 +90,11 @@
           </div>
           <div class="col-lg-4 callout"> <i class="fa fa-lock fa-3x"></i>
             <h3>No Crack</h3>
-            <p>You can install apps without cracked iPhone. So you can still use offical iOS apps, too.</p>
+            <p>You can install apps without cracked iPhone. So you can still use offical iOS apps.</p>
           </div>
           <div class="col-lg-4 callout"> <i class="fa fa-cubes fa-3x"></i>
             <h3>No Developer Program</h3>
-            <p>Without joinning Apple Developer Program, you can install iOS apps.</p>
+            <p>You need not to join Apple Developer Program.</p>
           </div>
         </div>
       </div>
@@ -99,27 +107,109 @@
           <h2 class="centered">USAGE</h2>
           <hr>
           <div class="col-md-8 col-md-offset-2">
-            <p>Install SparklingSample:</p>
-            <pre>brew sparkling install SparklingSample</pre>
+            <h3>Install <a href="https://www.mozilla.org/en-US/newsletter/ios/" target="_blank">Firefox for iOS</a></h3>
+            <p>Launch Xcode and type following:</p>
+            <pre>brew sparkling install firefox</pre>
           </div>
           <div class="col-md-8 col-md-offset-2">
-            <p>Search SparklingSample:</p>
-            <pre>brew sparkling search SparklingSample</pre>
+            <h3>Search Firefox</h3>
+            <pre>brew sparkling search firefox</pre>
+          </div>
+          <div class="col-md-8 col-md-offset-2">
+            <h3>Check your environment</h3>
+            <pre>
+# show all accounts
+brew sparkling accounts
+
+# show all cerificates
+brew sparkling certificates
+
+# show all connected devices
+brew sparkling devices
+</pre>
+          </div>
+          <div class="col-md-8 col-md-offset-2">
+            <h3>Configure your environment</h3>
+            <p>If you have multi AppleID or certificates, you should configure which you use at <code>~/.profile</code></p>
+            <pre>
+# set your account
+export BREW_SPARKLING_USERNAME=brew_sparkling@icloud.com
+
+# set your certificate
+export BREW_SPARKLING_CERTIFICATE='iPhone Developer: brew_sparkling@icloud.com (xxxxxx)'
+
+# set your device
+export BREW_SPARKLING_DEVICE=mzpPhone
+</pre>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ==== CONTACT ==== -->
+    <!-- ==== screenshots ==== -->
+    <div id="screenshots" name="screenshots">
+      <div class="container">
+        <div class="row">
+          <h2 class="centered">SCREENSHOTS</h2>
+          <hr>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 centered">
+              <div class="grid mask">
+                <figure>
+                  <a href="./assets/screenshots/firefox.png"><img class="img-responsive" src="./assets/screenshots/firefox.png" alt=""></a>
+                  <figcaption>
+                  <h5>Firefox for iOS</h5>
+                  <!-- /figcaption -->
+                </figure>
+                <!-- /figure -->
+              </div>
+            </div>
+            <div class="col-md-3 centered">
+              <div class="grid mask">
+                <figure>
+                  <a href="./assets/screenshots/provenance.png"><img class="img-responsive" src="./assets/screenshots/provenance.png" alt=""></a>
+                  <figcaption>
+                  <h5>Provenance: multiple emulators</h5>
+                  <!-- /figcaption -->
+                </figure>
+                <!-- /figure -->
+              </div>
+            </div>
+            <div class="col-md-3 centered">
+              <div class="grid mask">
+                <figure>
+                  <a href="./assets/screenshots/2048.png"><img class="img-responsive" src="./assets/screenshots/2048.png" alt=""></a>
+                  <figcaption>
+                  <h5>NumberOfTitels(2048 clone)</h5>
+                  <!-- /figcaption -->
+                </figure>
+                <!-- /figure -->
+              </div>
+            </div>
+            <div class="col-md-3 centered">
+              placeholder
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- container -->
+
+    <!-- ==== docs ==== -->
     <div id="docs" name="docs">
       <div class="container">
         <div class="row">
           <h2 class="centered">DOCUMENTS</h2>
           <hr>
-          <div class="col-md-offset-3 col-md-3 centered"> <i class="fa fa-github fa-2x"></i>
+          <div class="col-md-offset-3 col-md-2 centered"> <i class="fa fa-github fa-2x"></i>
             <p><a href="https://github.com/codefirst/homebrew-sparkling" target="_blank">codefirst/homebrew-sparkling</a></p>
           </div>
-          <div class="col-md-3"> <i class="fa fa-book fa-2x"></i>
+          <div class="col-md-2 centered"> <i class="fa fa-glass fa-2x"></i>
+            <p><a href="https://github.com/codefirst/homebrew-sparkling/tree/master/recipe" target="_blank">all installable iOS apps.</a></p>
+          </div>
+          <div class="col-md-2"> <i class="fa fa-book fa-2x"></i>
             <p><a href="https://github.com/codefirst/homebrew-sparkling/blob/master/README.md" target="_blank">Documents</a></p>
           </div>
         </div>
